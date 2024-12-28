@@ -8,16 +8,17 @@ type Components struct {
 	Shape     CShape
 	Collision CCollision
 	Score     CScore
-	Lifespan  CLifespan
-	Input     CInput
+	Lifespan  *CLifespan
+	Input     *CInput
 }
 
 type CTransform struct {
-	Pos      Vec2
-	Velocity Vec2
-	Scale    Vec2
-	Angle    float32
-	Rotation float32
+	Pos       Vec2
+	Direction Vec2
+	Scale     Vec2
+	Angle     float32
+	Rotation  float32
+	Speed     float32
 }
 
 type CCollision struct {
@@ -29,8 +30,10 @@ type CScore struct {
 }
 
 type CShape struct {
-	Sides  int32
-	Radius float32
+	Sides      int32
+	Radius     float32
+	cr, cg, cb uint8
+	br, bg, bb uint8
 }
 
 type CLifespan struct {

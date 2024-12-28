@@ -32,6 +32,9 @@ func (em *EntityManager) Update() {
 	em.addQueue = em.addQueue[:0]
 	// remove dead entities
 	for i, e := range em.Entities {
+		if i >= len(em.Entities) {
+			break
+		}
 		if !e.IsAlive() {
 			em.Entities = append(em.Entities[:i], em.Entities[i+1:]...)
 			i--
